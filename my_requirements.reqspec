@@ -8,12 +8,17 @@ system requirements consistency_reqs for My_Package::My_Thread [
     ]
     requirement R3 [
     	val deadline = #Deadline
-    	value predicate deadline <= 40 ms
     	description "deadline=" deadline
+    	value predicate deadline <= 40 ms
     ]
     requirement R4 [
     	val exec_time_range = #Compute_Execution_Time
-    	value predicate true
     	description "range=" exec_time_range
+    	value predicate true
+    ]
+    requirement R5 [
+    	val exec_time_range = [10ms..20ms]
+    	description "range=" exec_time_range
+    	value predicate true
     ]
 ]
