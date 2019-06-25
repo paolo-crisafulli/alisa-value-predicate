@@ -1,0 +1,7 @@
+
+assurance case MyAssuranceCaseWithValuePredicate for My_Package::My_Thread [
+	
+	assurance plan MyAssurancePlan for My_Package::My_Thread.i [
+		assure my_verification_plan
+	]
+]

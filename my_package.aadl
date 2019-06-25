@@ -1,0 +1,12 @@
+package My_Package
+public
+	thread My_Thread
+		properties
+			Compute_Execution_Time => 25ms .. 30ms;
+			Deadline => 40 ms;
+	end My_Thread;
+
+	thread implementation My_Thread.i
+		
+	end My_Thread.i;
+end My_Package;

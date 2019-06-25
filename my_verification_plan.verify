@@ -1,0 +1,10 @@
+verification plan my_verification_plan for consistency_reqs [
+	claim R1 [
+	]
+	claim R2 [
+	]
+	claim R3 [
+	]
+	claim R4 [
+	]
+] 
