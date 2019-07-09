@@ -1,22 +1,39 @@
 system requirements consistency_reqs for My_Package::My_Thread [ 
     requirement R1 [
+    	// Raises error "Could not evaluate value predicate: not implemented"
     	value predicate max(#Compute_Execution_Time) <= 30 ms
     ]
-    requirement R2 [
+    requirement R11 [
+    	// Very similar to the above issue, but storing the range in an intermediate value
+    	// Also raises error "Could not evaluate value predicate: not implemented"
     	val exec_time = max(#Compute_Execution_Time)
     	value predicate exec_time <= 30 ms
     ]
+    requirement R12 [
+    	// Similar to the above issues, but not referencing a property in the AADL model
+    	// Also raises error "Could not evaluate value predicate: not implemented"
+    	val exec_time_range = [10ms..20ms]
+    	val exec_time = max(exec_time_range)
+    	value predicate exec_time <= 30 ms
+    ]
     requirement R3 [
+    	// Value predicate is evaluated properly, but 'deadline' can't be displayed
+    	// Raises "Could not evaluate expression for deadline: org.eclipse.xsemantics.runtime.RuleFailedExpression..."
     	val deadline = #Deadline
     	description "deadline=" deadline
     	value predicate deadline <= 40 ms
     ]
     requirement R4 [
+    	// 'exec_time_range' can't be displayed
+    	// Raises "Could not evaluate expression for exec_time_range: org.eclipse.xsemantics.runtime.RuleFailedExpression..."
     	val exec_time_range = #Compute_Execution_Time
     	description "range=" exec_time_range
     	value predicate true
     ]
     requirement R5 [
+    	// Similar to the above issues, but not referencing a property in the AADL model
+    	// 'exec_time_range' can't be displayed
+    	// Raises "Could not evaluate expression for exec_time_range: org.eclipse.xsemantics.runtime.RuleFailedExpression..."
     	val exec_time_range = [10ms..20ms]
     	description "range=" exec_time_range
     	value predicate true
